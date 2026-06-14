@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avian Technology — Boutique IT Consultancy</title>
+  <meta name="description" content="Avian Technology is a founder-led IT consultancy helping businesses take flight with custom software, cloud, and hands-on technical guidance." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="brand" aria-label="Avian Technology home">
+        <svg class="brand__mark" viewBox="2 7 88 88" aria-hidden="true">
+          <defs><linearGradient id="avNav" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#3f93c9"/><stop offset="1" stop-color="#0a66c2"/></linearGradient></defs>
+          <path d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z" fill="url(#avNav)"/>
+        </svg>
+        <span class="brand__text">Avian<span class="brand__dot">.</span>Technology</span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn--small">Get in touch</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container hero__inner">
+      <p class="eyebrow reveal">Founder-led IT consultancy</p>
+      <h1 class="hero__title reveal">
+        Technology that helps<br class="br-desktop" /> your business <span class="hl">take&nbsp;flight.</span>
+      </h1>
+      <p class="hero__sub reveal">
+        Avian Technology is a small, family-built consultancy. You work directly with the
+        people who build your software — no call centres, no juniors learning on your dime.
+        Just senior expertise and a team that treats your business like its own.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#contact" class="btn">Start a conversation</a>
+        <a href="#services" class="btn btn--ghost">See what we do →</a>
+      </div>
+      <div class="hero__trust reveal">
+        <div><strong>100%</strong><span>Founder-led delivery</span></div>
+        <div class="divider"></div>
+        <div><strong>Direct</strong><span>Access to your team</span></div>
+        <div class="divider"></div>
+        <div><strong>Senior</strong><span>Expertise on every project</span></div>
+      </div>
+    </div>
+    <div class="hero__fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="container about">
+      <div class="about__media reveal">
+        <div class="about__card">
+          <span class="about__badge">Est. 2026</span>
+          <svg viewBox="0 0 100 100" class="about__bird" aria-hidden="true">
+            <path d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z"/>
+          </svg>
+          <p class="about__quote">"We started Avian to do consulting the way we'd want it done for us — honestly, personally, and properly."</p>
+        </div>
+      </div>
+      <div class="about__body">
+        <p class="eyebrow reveal">Who we are</p>
+        <h2 class="reveal">A boutique team, built on trust.</h2>
+        <p class="reveal">
+          Avian Technology is a new, family-founded IT consultancy. We're deliberately small —
+          and that's the point. When you work with us, you talk to the people actually doing the
+          work, decisions happen fast, and nothing gets lost in layers of management.
+        </p>
+        <p class="reveal">
+          We help businesses choose the right technology, build software that fits, and keep it
+          running smoothly. No jargon, no overselling — just clear advice and dependable delivery.
+        </p>
+        <ul class="about__list reveal">
+          <li>Honest, plain-language guidance</li>
+          <li>One dedicated point of contact</li>
+          <li>Long-term partnership, not one-off projects</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section section--tint" id="services">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal">What we do</p>
+        <h2 class="reveal">Services built around your business</h2>
+        <p class="section__lead reveal">From first idea to long-term support — practical IT help at every stage.</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card reveal">
+          <div class="card__icon">⚙️</div>
+          <h3>IT Consulting</h3>
+          <p>Independent advice on tools, systems, and strategy — so you invest in the right technology, not the trendiest.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">💻</div>
+          <h3>Custom Software</h3>
+          <p>Web and business applications built to fit how you actually work, not forced into off-the-shelf templates.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">☁️</div>
+          <h3>Cloud & Infrastructure</h3>
+          <p>Setup, migration, and management of cloud services that keep your business fast, secure, and scalable.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🔗</div>
+          <h3>Systems Integration</h3>
+          <p>Connect the tools you already use so data flows automatically and your team stops doing double work.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🛡️</div>
+          <h3>Support & Maintenance</h3>
+          <p>Ongoing care for your systems — updates, monitoring, and a real person to call when something breaks.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🚀</div>
+          <h3>Digital Transformation</h3>
+          <p>Step-by-step modernisation of manual processes, helping your business work smarter as it grows.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Why Us ===== -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow reveal">Why Avian</p>
+        <h2 class="reveal">Small team. Big advantage.</h2>
+        <p class="section__lead reveal">The things a large firm can't offer you — but we can.</p>
+      </div>
+      <div class="grid grid--2 why">
+        <div class="why__item reveal">
+          <span class="why__num">01</span>
+          <h3>You talk to the makers</h3>
+          <p>No account managers relaying messages. You speak directly to the people designing and building your solution.</p>
+        </div>
+        <div class="why__item reveal">
+          <span class="why__num">02</span>
+          <h3>Fast, flexible decisions</h3>
+          <p>Being small means no bureaucracy. We adapt quickly when your needs or priorities change.</p>
+        </div>
+        <div class="why__item reveal">
+          <span class="why__num">03</span>
+          <h3>Genuinely invested</h3>
+          <p>As a family business, our reputation rides on every project. Your success is personal to us.</p>
+        </div>
+        <div class="why__item reveal">
+          <span class="why__num">04</span>
+          <h3>Honest & transparent</h3>
+          <p>Clear pricing, clear timelines, clear communication. We'll tell you what you need — even when it's "not yet."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section class="stats" id="stats">
+    <div class="container grid grid--3 stats__grid">
+      <div class="stat reveal">
+        <span class="stat__num" data-count="100" data-suffix="%">0</span>
+        <span class="stat__label">Senior-led projects</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__num" data-count="24" data-suffix="/7">0</span>
+        <span class="stat__label">Support availability</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat__num" data-count="1" data-suffix="-on-1">0</span>
+        <span class="stat__label">Dedicated partnership</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section section--tint" id="contact">
+    <div class="container contact">
+      <div class="contact__info">
+        <p class="eyebrow reveal">Get in touch</p>
+        <h2 class="reveal">Let's talk about your project.</h2>
+        <p class="reveal">Tell us what you're trying to achieve and we'll get back to you personally — usually within a day.</p>
+        <ul class="contact__list reveal">
+          <li><span>✉️</span> hello@aviantechnology.com</li>
+          <li><span>📞</span> +91 00000 00000</li>
+          <li><span>📍</span> India</li>
+        </ul>
+      </div>
+      <form class="contact__form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required />
+        </div>
+        <div class="field">
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us a little about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--full">Send message</button>
+        <p class="form__note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand__row">
+          <svg class="footer__mark" viewBox="2 7 88 88" width="34" height="34" aria-hidden="true">
+            <path d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z" fill="#fff"/>
+          </svg>
+          <span class="brand__text">Avian<span class="brand__dot">.</span>Technology</span>
+        </div>
+        <p>Helping businesses take flight, one project at a time.</p>
+      </div>
+      <nav class="footer__links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year"></span> Avian Technology. All rights reserved.</span>
+      <span>Built with care.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
