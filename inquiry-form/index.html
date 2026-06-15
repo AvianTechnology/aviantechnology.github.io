@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start a Project — Avian Technology</title>
+  <meta name="description" content="Tell Avian Technology about your project. Share your goals, budget and timeline and we'll get back to you personally — usually within a day." />
+
+  <!-- Favicon (inline so the tool is fully self-contained) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f4f9fd'/%3E%3Cpath d='M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z' fill='%230a66c2'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="../index.html" class="brand" aria-label="Avian Technology home">
+        <svg class="brand__mark" viewBox="2 7 88 88" aria-hidden="true">
+          <defs><linearGradient id="avMark" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#3f93c9"/><stop offset="1" stop-color="#0a66c2"/></linearGradient></defs>
+          <path d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z" fill="url(#avMark)"/>
+        </svg>
+        <span class="brand__text">Avian<span class="brand__dot">.</span>Technology</span>
+      </a>
+      <a href="../index.html#contact" class="topbar__link">← Back to site</a>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="page">
+    <div class="bg" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+    </div>
+
+    <div class="container page__inner">
+
+      <!-- Intro -->
+      <div class="intro">
+        <span class="eyebrow">Start a project</span>
+        <h1>Tell us about <span class="hl">your project</span>.</h1>
+        <p class="intro__sub">Share a few details and we'll come back to you personally — usually within a day. Nothing here is binding; it just helps us prepare.</p>
+      </div>
+
+      <!-- ===== Form card ===== -->
+      <form class="formcard" id="inquiryForm" novalidate>
+
+        <fieldset class="fset">
+          <legend class="fset__legend">About you</legend>
+          <div class="grid2">
+            <div class="field">
+              <label for="name">Full name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Doe" />
+              <small class="err" data-err-for="name"></small>
+            </div>
+            <div class="field">
+              <label for="company">Company <span class="opt">(optional)</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="Acme Pvt. Ltd." />
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@acme.com" />
+              <small class="err" data-err-for="email"></small>
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91 00000 00000" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend class="fset__legend">Your project</legend>
+
+          <div class="field">
+            <label for="service">Service needed <span class="req">*</span></label>
+            <select id="service" name="service">
+              <option value="" selected disabled>Select a service…</option>
+              <option>IT Consulting</option>
+              <option>Custom Software</option>
+              <option>Cloud &amp; Infrastructure</option>
+              <option>Systems Integration</option>
+              <option>Support &amp; Maintenance</option>
+              <option>Digital Transformation</option>
+              <option>Other</option>
+            </select>
+            <small class="err" data-err-for="service"></small>
+          </div>
+
+          <div class="field">
+            <label for="description">Project description <span class="req">*</span></label>
+            <textarea id="description" name="description" rows="5" placeholder="What are you trying to achieve? The more context, the better we can help."></textarea>
+            <small class="err" data-err-for="description"></small>
+          </div>
+
+          <div class="grid2">
+            <div class="field">
+              <label for="budget">Estimated budget <span class="opt">(optional)</span></label>
+              <select id="budget" name="budget">
+                <option value="" selected>Not sure yet</option>
+                <option>Under ₹1 Lakh</option>
+                <option>₹1 – 5 Lakh</option>
+                <option>₹5 – 15 Lakh</option>
+                <option>₹15 Lakh +</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timeline">Timeline <span class="opt">(optional)</span></label>
+              <select id="timeline" name="timeline">
+                <option value="" selected>Flexible / not sure</option>
+                <option>ASAP</option>
+                <option>Within 1 month</option>
+                <option>1 – 3 months</option>
+                <option>3 months +</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="source">How did you hear about us? <span class="opt">(optional)</span></label>
+            <input type="text" id="source" name="source" placeholder="Referral, search, LinkedIn…" />
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn--full">Send inquiry</button>
+        <p class="formcard__note" id="formNote" role="status" aria-live="polite"></p>
+        <p class="formcard__fineprint">By sending, you agree we may contact you about your inquiry. We never share your details.</p>
+      </form>
+
+      <!-- ===== Success panel (hidden until submit) ===== -->
+      <div class="success" id="successPanel" hidden>
+        <svg class="success__bird" viewBox="2 7 88 88" aria-hidden="true">
+          <path d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z" fill="currentColor"/>
+        </svg>
+        <h2>Thank you, <span id="successName">there</span>!</h2>
+        <p>Your inquiry has been recorded. We'll review it and get back to you personally — usually within a day.</p>
+        <p class="success__hint">Want it in our inbox right away? Send a copy by email — it'll open pre-filled with your details.</p>
+        <div class="success__actions">
+          <a href="#" class="btn" id="mailtoBtn">✉️ Email a copy to Avian</a>
+          <button type="button" class="btn btn--ghost" id="anotherBtn">Submit another inquiry</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="container">
+      <p>© <span id="year"></span> Avian Technology — boutique IT consultancy. Built in‑house.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
