@@ -28,8 +28,11 @@
     (function () {
       try {
         var key = 'avian-theme';
+        var q = window.location.search + window.location.hash;
+        // ?theme=dark / ?theme=light force a theme (handy for design-importers, print, sharing)
+        var forced = /[?&#]theme=dark/.test(q) ? 'dark' : (/[?&#]theme=light/.test(q) ? 'light' : null);
         var saved = localStorage.getItem(key);
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var theme = forced || saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
       } catch (e) { /* localStorage blocked — default light via CSS */ }
     })();
