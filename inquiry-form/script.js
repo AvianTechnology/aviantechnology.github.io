@@ -22,6 +22,19 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  // Dark / light theme toggle (initial theme is set in <head> before paint,
+  // shared with the main site via the "avian-theme" localStorage key)
+  var themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      var next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("avian-theme", next); } catch (e) {}
+      themeToggle.setAttribute("aria-label", next === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    });
+  }
+
   // Required fields and their friendly labels for error messages
   var REQUIRED = {
     name:        "Please tell us your name.",

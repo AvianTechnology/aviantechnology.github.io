@@ -3,6 +3,18 @@
 // Current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Dark / light theme toggle (initial theme is set in <head> before paint)
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('avian-theme', next); } catch (e) {}
+    themeToggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+}
+
 // Sticky nav background on scroll
 const nav = document.getElementById('nav');
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
@@ -69,6 +81,40 @@ const statObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 stats.forEach((s) => statObserver.observe(s));
+
+// Work / showcase filter tabs
+const workFilter = document.querySelector('.work-filter');
+if (workFilter) {
+  const cards = [...document.querySelectorAll('#workGrid .work__card')];
+  const empty = document.getElementById('workEmpty');
+  const btns = [...workFilter.querySelectorAll('.work-filter__btn')];
+
+  workFilter.addEventListener('click', (e) => {
+    const btn = e.target.closest('.work-filter__btn');
+    if (!btn) return;
+
+    btns.forEach((b) => {
+      const active = b === btn;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-selected', String(active));
+    });
+
+    const f = btn.dataset.filter;
+    let shown = 0;
+    cards.forEach((card) => {
+      const match = f === 'all' || (card.dataset.cat || '').includes(f);
+      card.classList.toggle('is-hidden', !match);
+      card.classList.remove('is-shown');
+      if (match) {
+        shown++;
+        // retrigger entrance animation
+        void card.offsetWidth;
+        card.classList.add('is-shown');
+      }
+    });
+    if (empty) empty.hidden = shown > 0;
+  });
+}
 
 // Contact form (front-end demo — no backend yet)
 const form = document.getElementById('contactForm');
