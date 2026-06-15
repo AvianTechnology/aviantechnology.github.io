@@ -12,6 +12,9 @@
   var THEME_KEY = 'avian-theme';
   var root = document.documentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Import/print-friendly mode: "?flat" or "#flat" reveals everything immediately (no scroll
+  // animations) so design-importers and print captures get the full, complete page.
+  var flat = /(?:[?&#])flat\b/.test(window.location.search + window.location.hash);
 
   /* ---------------------------------------------------------------------
      Theme toggle — persists to the shared avian-theme key; updates all toggles
@@ -61,7 +64,7 @@
      Also flips the per-section .is-revealed (drives the 03 gold tick + index rules).
      --------------------------------------------------------------------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  if (reduceMotion || !('IntersectionObserver' in window)) {
+  if (flat || reduceMotion || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('is-revealed'); });
     document.querySelectorAll('.note, .section').forEach(function (el) { el.classList.add('is-revealed'); });
   } else {
