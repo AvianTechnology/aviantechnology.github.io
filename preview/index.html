@@ -1,0 +1,424 @@
+<!--
+  index.html · Avian Website 2026 ("Field Notes")
+  Purpose: the single marketing page — nav + sections 01–07 — built to the Field Notes editorial system.
+  Key contents: contents-index nav, hero, services ledger, the "how we work" signature notebook, illustrative work,
+                family story, contact CTA, navy footer, mobile contents-sheet.
+  Related: styles.css (tokens + all styles), main.js (theme, nav, reveals), assets/logo.svg, BRAND-SPEC.md, DESIGN-SPEC.md, COPY.md
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avian Technology — a small studio that builds technology by hand</title>
+  <meta name="description" content="Avian Technology is a small, family-run IT studio. We build software, fix the messy systems behind a business, and explain it all in plain words. You talk to the people doing the work.">
+  <meta name="theme-color" content="#FBF8F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B1B2B" media="(prefers-color-scheme: dark)">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Avian Technology — built by hand, answered by a person">
+  <meta property="og:description" content="A small, family-run IT studio. Custom software, fixed systems, plain words — and the same people who built it answer when you call.">
+  <meta property="og:image" content="assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- No-flash theme: set data-theme before first paint (shared key with the Avian family of sites) -->
+  <script>
+    (function () {
+      try {
+        var key = 'avian-theme';
+        var saved = localStorage.getItem(key);
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* localStorage blocked — default light via CSS */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav" data-reveal-skip>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Avian Technology — back to top">
+        <span class="nav__logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100" focusable="false"><path fill="currentColor" d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z"/></svg>
+        </span>
+        <span class="nav__wordmark">Avian</span>
+      </a>
+
+      <nav class="nav__index" aria-label="Contents">
+        <a class="nav__num" href="#hero"          data-section="hero"          aria-label="01 — Home"><span aria-hidden="true">01</span></a>
+        <a class="nav__num" href="#what-we-do"    data-section="what-we-do"    aria-label="02 — What we do"><span aria-hidden="true">02</span></a>
+        <a class="nav__num" href="#how-we-work"   data-section="how-we-work"   aria-label="03 — How we work"><span aria-hidden="true">03</span></a>
+        <a class="nav__num" href="#selected-work" data-section="selected-work" aria-label="04 — Selected work"><span aria-hidden="true">04</span></a>
+        <a class="nav__num" href="#about"         data-section="about"         aria-label="05 — About"><span aria-hidden="true">05</span></a>
+        <a class="nav__num" href="#contact"       data-section="contact"       aria-label="06 — Contact"><span aria-hidden="true">06</span></a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        </button>
+        <a class="btn btn--gold nav__cta" href="#contact">Start a conversation</a>
+        <button class="icon-btn nav__menu" type="button" aria-label="Open contents menu" aria-expanded="false" aria-controls="menu-sheet">
+          <span class="nav__menu-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================== MOBILE CONTENTS SHEET ====================== -->
+  <div class="sheet" id="menu-sheet" hidden>
+    <div class="sheet__backdrop" data-sheet-close></div>
+    <nav class="sheet__panel" aria-label="Contents">
+      <p class="eyebrow sheet__eyebrow">Contents</p>
+      <a class="sheet__row" href="#hero"          data-sheet-close><span class="sheet__num">01</span> Home</a>
+      <a class="sheet__row" href="#what-we-do"    data-sheet-close><span class="sheet__num">02</span> What we do</a>
+      <a class="sheet__row" href="#how-we-work"   data-sheet-close><span class="sheet__num">03</span> How we work</a>
+      <a class="sheet__row" href="#selected-work" data-sheet-close><span class="sheet__num">04</span> Selected work</a>
+      <a class="sheet__row" href="#about"         data-sheet-close><span class="sheet__num">05</span> About</a>
+      <a class="sheet__row" href="#contact"       data-sheet-close><span class="sheet__num">06</span> Contact</a>
+      <div class="sheet__footer">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        </button>
+        <a class="btn btn--gold" href="#contact" data-sheet-close>Start a conversation</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ============================== 01 · HERO ============================== -->
+    <section class="section section--hero" id="hero" aria-labelledby="hero-h">
+      <span class="contour contour--hero" aria-hidden="true">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g fill="none" stroke="var(--contour-stroke)" stroke-width="1">
+            <path d="M0 70 C150 30 300 110 450 70 600 30 600 70 600 70"/>
+            <path d="M0 130 C150 90 300 170 450 130 600 90 600 130 600 130"/>
+            <path d="M0 190 C150 150 300 230 450 190 600 150 600 190 600 190"/>
+            <path d="M0 250 C150 210 300 290 450 250 600 210 600 250 600 250"/>
+            <path d="M0 310 C150 270 300 350 450 310 600 270 600 310 600 310"/>
+            <path d="M0 370 C150 330 300 410 450 370 600 330 600 370 600 370"/>
+          </g>
+        </svg>
+      </span>
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">01</span>
+        <div class="section__body">
+          <p class="eyebrow reveal">Avian Technology — independent IT studio</p>
+          <h1 class="display reveal" id="hero-h">We're the small team that actually picks up the phone<span class="display__break"> </span>— and stays until the thing works.</h1>
+          <span class="index-rule reveal" aria-hidden="true"></span>
+          <div class="hero__split">
+            <div class="hero__lead">
+              <p class="body lead reveal">We build software, fix the messy systems behind a business, and explain it all in plain words. You talk to the people doing the work. Every time.</p>
+              <div class="hero__actions reveal">
+                <a class="btn btn--gold" href="#contact">Start a conversation <span class="btn__arrow" aria-hidden="true">→</span></a>
+                <a class="link-action" href="#how-we-work">See how we work</a>
+              </div>
+            </div>
+            <aside class="hero__notes reveal" aria-label="At a glance">
+              <p class="meta">No. 01 / 07</p>
+              <p class="meta meta--soft">A family practice.<br>Independent. Small on&nbsp;purpose.</p>
+              <p class="meta meta--soft">Usually a reply within one business day — from a person, not a queue.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 02 · WHAT WE DO ============================== -->
+    <section class="section section--band" id="what-we-do" aria-labelledby="wwd-h">
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">02</span>
+        <div class="section__body">
+          <header class="section-head">
+            <p class="eyebrow reveal">Services</p>
+            <h2 class="h2 reveal" id="wwd-h">What we do</h2>
+            <span class="index-rule reveal" aria-hidden="true"></span>
+            <p class="body section-head__intro reveal">Most of our work falls into a handful of things. We'd rather do these few well than claim everything.</p>
+          </header>
+
+          <ol class="ledger" role="list">
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">01</span>
+              <div class="ledger__main">
+                <h3 class="h3">Custom internal tools</h3>
+                <p class="body">The spreadsheet that's holding the business together, turned into something built for the job — faster to use, harder to break, easier to hand to the next person.</p>
+              </div>
+              <span class="ledger__meta meta">Built to fit</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">02</span>
+              <div class="ledger__main">
+                <h3 class="h3">Websites &amp; web apps</h3>
+                <p class="body">Sites and apps that load fast and read clearly — quick on a phone, easy to update, free of the bloat that makes pages crawl. No template you'll outgrow in a year.</p>
+              </div>
+              <span class="ledger__meta meta">Fast on a phone</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">03</span>
+              <div class="ledger__main">
+                <h3 class="h3">Automation</h3>
+                <p class="body">We find the repetitive, copy-paste tasks eating your week and let the computer handle them — so your people spend time on the parts that need a person.</p>
+              </div>
+              <span class="ledger__meta meta">Less busywork</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">04</span>
+              <div class="ledger__main">
+                <h3 class="h3">Data &amp; reporting</h3>
+                <p class="body">We pull scattered data into one place and turn it into reports you'll actually read, so decisions come from facts instead of a hunch.</p>
+              </div>
+              <span class="ledger__meta meta">One source</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">05</span>
+              <div class="ledger__main">
+                <h3 class="h3">IT support &amp; advisory</h3>
+                <p class="body">A steady hand when something breaks — or before it does. Practical help with the systems you depend on, plus honest advice on what to buy, keep, and ignore.</p>
+              </div>
+              <span class="ledger__meta meta">Honest advice</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">06</span>
+              <div class="ledger__main">
+                <h3 class="h3">Maintenance &amp; care</h3>
+                <p class="body">We don't disappear after launch. Updates, fixes, and small improvements over time, so the work stays looked-after and keeps earning its keep.</p>
+              </div>
+              <span class="ledger__meta meta">We don't vanish</span>
+            </li>
+          </ol>
+          <p class="meta ledger__caveat reveal">Not on this list? Ask anyway. If we're not the right people, we'll tell you who is.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 03 · HOW WE WORK (signature) ============================== -->
+    <section class="section section--notebook" id="how-we-work" aria-labelledby="hww-h">
+      <span class="contour contour--notebook" aria-hidden="true">
+        <svg viewBox="0 0 200 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g fill="none" stroke="var(--contour-stroke)" stroke-width="1">
+            <path d="M40 0 C10 100 70 200 40 300 10 400 70 500 40 600"/>
+            <path d="M90 0 C60 100 120 200 90 300 60 400 120 500 90 600"/>
+            <path d="M140 0 C110 100 170 200 140 300 110 400 170 500 140 600"/>
+          </g>
+        </svg>
+      </span>
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">03</span>
+        <div class="section__body">
+          <header class="section-head">
+            <p class="eyebrow reveal">Method — how we work · five field notes</p>
+            <h2 class="h2 reveal" id="hww-h">How we work</h2>
+            <span class="index-rule reveal" aria-hidden="true"></span>
+            <p class="body section-head__intro reveal">We've watched good projects go sideways for the same few reasons. So we work the opposite way.</p>
+          </header>
+
+          <ol class="notes" role="list">
+            <li class="note reveal">
+              <span class="note__num meta" aria-hidden="true">№ 01</span>
+              <div class="note__main">
+                <h3 class="h3">You talk to the people doing the work.</h3>
+                <p class="body">No account manager relaying messages to someone you'll never meet. The person who builds it is the person you brief — and the person who answers when you call.</p>
+              </div>
+              <span class="note__annot meta" aria-hidden="true">— no middlemen</span>
+            </li>
+            <li class="note reveal">
+              <span class="note__num meta" aria-hidden="true">№ 02</span>
+              <div class="note__main">
+                <h3 class="h3">We say the price before we start.</h3>
+                <p class="body">You get a clear scope and a number up front. If the work grows, we tell you before the bill does.</p>
+              </div>
+              <span class="note__annot note__annot--gold meta" aria-hidden="true">— no surprise invoices</span>
+            </li>
+            <li class="note reveal">
+              <span class="note__num meta" aria-hidden="true">№ 03</span>
+              <div class="note__main">
+                <h3 class="h3">Small, finished pieces beat one big reveal.</h3>
+                <p class="body">We ship in steps you can see and use, instead of vanishing for three months. You catch what's wrong early, while it's cheap to change.</p>
+              </div>
+              <span class="note__annot meta" aria-hidden="true">— nothing big-bang</span>
+            </li>
+            <li class="note reveal">
+              <span class="note__num meta" aria-hidden="true">№ 04</span>
+              <div class="note__main">
+                <h3 class="h3">Plain words, always.</h3>
+                <p class="body">We'll explain what we're doing and why, without the jargon. If you can't tell a friend what you bought, we haven't done our job.</p>
+              </div>
+              <span class="note__annot meta" aria-hidden="true">— no jargon</span>
+            </li>
+            <li class="note reveal">
+              <span class="note__num meta" aria-hidden="true">№ 05</span>
+              <div class="note__main">
+                <h3 class="h3">We hand it over clean.</h3>
+                <p class="body">Documented, tidy, and yours. You're never locked in or held hostage for a password. Good work should outlast the people who built it.</p>
+              </div>
+              <span class="note__annot meta" aria-hidden="true">— no lock-in</span>
+            </li>
+          </ol>
+          <p class="meta notes__caveat reveal">We're a small team on purpose. That means we say no to work we can't do well — and yes means yes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 04 · SELECTED WORK ============================== -->
+    <section class="section section--band" id="selected-work" aria-labelledby="sw-h">
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">04</span>
+        <div class="section__body">
+          <header class="section-head">
+            <p class="eyebrow reveal">Selected work</p>
+            <h2 class="h2 reveal" id="sw-h">Selected work</h2>
+            <span class="index-rule reveal" aria-hidden="true"></span>
+            <p class="body section-head__intro reveal">We're a new studio, so here's the honest version: the work below is illustrative — the kind of project we're built for, written generically. Real engagements will replace these as they ship.</p>
+          </header>
+
+          <ol class="ledger ledger--work" role="list">
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">A</span>
+              <div class="ledger__main">
+                <p class="meta work__type">Internal tool · Trades / field service</p>
+                <h3 class="h3">From a tangle of spreadsheets to one tool the whole crew can use.</h3>
+                <p class="body">A growing contractor tracked jobs, quotes, and schedules across half a dozen files only one person understood. We replaced it with a single shared tool — built for the office and the van — so nothing falls through the cracks and anyone can pick it up.</p>
+              </div>
+              <span class="ledger__meta meta tag-illustrative">Illustrative</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">B</span>
+              <div class="ledger__main">
+                <p class="meta work__type">Website + booking · Local services</p>
+                <h3 class="h3">A site that loads fast, reads clearly, and books the appointment.</h3>
+                <p class="body">An independent business had a slow, dated site that lost people on their phones. We rebuilt it lean and mobile-first, with booking built in — so a visitor becomes a customer without a phone call.</p>
+              </div>
+              <span class="ledger__meta meta tag-illustrative">Illustrative</span>
+            </li>
+            <li class="ledger__row reveal">
+              <span class="ledger__num" aria-hidden="true">C</span>
+              <div class="ledger__main">
+                <p class="meta work__type">Automation + reporting · Small operations</p>
+                <h3 class="h3">Hours of manual reporting, down to a button.</h3>
+                <p class="body">A small operations team rebuilt the same report by hand every week. We automated the gathering and the math, and put the numbers in one clear dashboard — giving back most of a day, every week.</p>
+              </div>
+              <span class="ledger__meta meta tag-illustrative">Illustrative</span>
+            </li>
+          </ol>
+          <p class="meta ledger__caveat reveal">Labelled illustrative on purpose. We won't show you fake clients to win real ones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 05 · ABOUT ============================== -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">05</span>
+        <div class="section__body">
+          <header class="section-head">
+            <p class="eyebrow reveal">About — small as an advantage</p>
+            <h2 class="h2 reveal" id="about-h">Avian is family-run.<br>That's not a detail — it's the whole point.</h2>
+            <span class="index-rule reveal" aria-hidden="true"></span>
+          </header>
+          <div class="about__split">
+            <div class="about__story">
+              <p class="body reveal">We started Avian because we'd seen too much technology sold by people who'd never have to live with it. The big agency takes the brief, ships the project, and moves on. The small business is left holding a system nobody will explain.</p>
+              <p class="body reveal">We wanted to be the other kind. So we kept the team small — close enough that we know your name, your setup, and what you're trying to get done. When you call, you reach us, not a ticket number.</p>
+              <p class="body reveal">Small isn't a limitation we're apologizing for. It's how the work stays careful. Fewer clients, more attention, our name on every piece of it. We answer for what we make, because there's no one else to point to — and we like it that way.</p>
+            </div>
+            <aside class="about__facts reveal" aria-label="About, in brief">
+              <p class="meta">Family-run · independent</p>
+              <p class="meta meta--soft">You'll always reach a person who already knows your setup.</p>
+              <p class="meta meta--soft">Our rule: never ship something we wouldn't want to maintain ourselves.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 06 · CONTACT ============================== -->
+    <section class="section section--contact" id="contact" aria-labelledby="contact-h">
+      <span class="contour contour--contact" aria-hidden="true">
+        <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g fill="none" stroke="var(--contour-stroke)" stroke-width="1">
+            <path d="M300 180 m-30 0 a30 30 0 1 0 60 0 a30 30 0 1 0 -60 0"/>
+            <path d="M300 180 m-70 0 a70 70 0 1 0 140 0 a70 70 0 1 0 -140 0"/>
+            <path d="M300 180 m-120 0 a120 120 0 1 0 240 0 a120 120 0 1 0 -240 0"/>
+            <path d="M300 180 m-180 0 a180 180 0 1 0 360 0 a180 180 0 1 0 -360 0"/>
+          </g>
+        </svg>
+      </span>
+      <div class="section__inner">
+        <span class="index-num" aria-hidden="true">06</span>
+        <div class="section__body section__body--center">
+          <p class="eyebrow reveal">Start a conversation</p>
+          <h2 class="h2 contact__h reveal" id="contact-h">Tell us what's slowing you down. We'll tell you, honestly, if we can help.</h2>
+          <span class="index-rule index-rule--center reveal" aria-hidden="true"></span>
+          <p class="body lead contact__sub reveal">No pitch, no pressure. A short conversation about what you're dealing with — and a clear, plain answer about whether we're the right team for it.</p>
+
+          <ol class="next reveal" aria-label="What happens next">
+            <li class="next__item"><span class="next__n meta" aria-hidden="true">1</span><span class="body">You write a few lines about what you need — rough is fine.</span></li>
+            <li class="next__item"><span class="next__n meta" aria-hidden="true">2</span><span class="body">One of us reads it and replies within one business day.</span></li>
+            <li class="next__item"><span class="next__n meta" aria-hidden="true">3</span><span class="body">If it's a fit, we talk. If it isn't, we'll point you somewhere better.</span></li>
+          </ol>
+
+          <div class="contact__cta reveal">
+            <a class="btn btn--gold btn--lg" href="mailto:hello@aviantechnology.example">Start a conversation <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+          <p class="meta contact__email reveal"><a href="mailto:hello@aviantechnology.example">hello@aviantechnology.example</a> · We read every message ourselves.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== 07 · FOOTER ============================== -->
+  <footer class="footer" id="footer" aria-labelledby="footer-h">
+    <h2 class="sr-only" id="footer-h">Avian Technology</h2>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="nav__brand footer__logo" href="#top" aria-label="Avian Technology — back to top">
+          <span class="nav__logo" aria-hidden="true">
+            <svg viewBox="0 0 100 100" focusable="false"><path fill="currentColor" d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z"/></svg>
+          </span>
+          <span class="nav__wordmark">Avian</span>
+        </a>
+        <p class="footer__tagline">A small studio that builds technology by hand.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Sections">
+        <p class="meta footer__h">Sections</p>
+        <a href="#what-we-do">What we do</a>
+        <a href="#how-we-work">How we work</a>
+        <a href="#selected-work">Selected work</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="footer__col">
+        <p class="meta footer__h">Get in touch</p>
+        <a class="footer__mail" href="mailto:hello@aviantechnology.example">hello@aviantechnology.example</a>
+        <p class="footer__signoff">Built and maintained by the people who answer the phone.</p>
+        <button class="icon-btn theme-toggle footer__toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="footer__base">
+      <p class="meta footer__colophon">Field Notes — 2026</p>
+      <p class="meta footer__copy">© 2026 Avian Technology. Family-founded, independently run.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

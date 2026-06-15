@@ -1,0 +1,5 @@
+<!-- logo.svg · Avian bird mark (fuller bird: notched wing + forked tail) · exact path from AVIAN-DESIGN-REFERENCE.md §8 · uses currentColor so it inherits --bold/--navy/--paper by context · related: index.html (nav, footer), favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Avian">
+  <path fill="currentColor"
+    d="M12 62c16 4 28-4 40-20 8-10 18-16 32-16-6 12-14 18-14 18 8-2 14-2 14-2-8 10-20 16-34 16-4 8-14 14-26 14 4-6 6-10 6-10-10 2-18 0-18 0z"/>
+</svg>
